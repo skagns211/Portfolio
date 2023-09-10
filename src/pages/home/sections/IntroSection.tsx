@@ -1,22 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { keyframes, styled } from 'styled-components';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React from 'react';
+import { styled } from 'styled-components';
 import backgroundImg from '../../../assets/milkyway.jpeg';
 import arrowDownImg from '../../../assets/arrow-down.png';
 import Section from '../../../components/Section';
 import Header from '../../../components/Header';
 
-const FirstSection = () => {
-    useEffect(() => {
-        AOS.init({
-            duration: 1300,
-            offset: 50,
-            easing: 'ease',
-            once: false,
-        });
-    }, []);
-
+const IntroSection = () => {
     return (
         <div style={{ backgroundColor: 'black' }}>
             <Header />
@@ -36,13 +25,10 @@ const FirstSection = () => {
                     </div>
                     <ImageContent>
                         <ImageHeadline data-aos="slide-left">
-                            <span>How Neat is That?</span>
+                            <span>KIM NAMHUN</span>
                         </ImageHeadline>
                     </ImageContent>
                 </ImageInner>
-            </Section>
-            <Section>
-                <h2 data-aos="slide-right">Thats pretty neat.</h2>
             </Section>
         </div>
     );
@@ -104,4 +90,4 @@ const ScrollDown = styled.div`
     }
 `;
 
-export default FirstSection;
+export default IntroSection;

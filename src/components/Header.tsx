@@ -1,19 +1,21 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+import Scroll, { Link } from 'react-scroll';
 import { styled } from 'styled-components';
 
 const Header = () => {
+    const scroll = Scroll.animateScroll;
+
     const handleTop = () => {
-        if (!window.scrollY) return;
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
+        scroll.scrollToTop();
     };
+
     return (
         <MainContainer>
             <MainHeader>
                 <HeaderButton onClick={handleTop}>Top</HeaderButton>
-                <HeaderButton>Header</HeaderButton>
+                <Link to="about" smooth spy>
+                    <HeaderButton>About</HeaderButton>
+                </Link>
                 <HeaderButton>Header</HeaderButton>
                 <HeaderButton>Header</HeaderButton>
             </MainHeader>
@@ -35,7 +37,7 @@ const MainHeader = styled.header`
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     width: 25rem;
-    height: 2.5rem;
+    height: 2.2rem;
 `;
 const HeaderButton = styled.button`
     border: none;

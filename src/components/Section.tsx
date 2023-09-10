@@ -3,18 +3,25 @@ import { styled } from 'styled-components';
 
 interface SectionProps {
     children: React.ReactNode;
+    height?: number;
+    id?: string;
 }
 
-const Section: React.FC<SectionProps> = ({ children }) => {
-    return <CustomSection>{children}</CustomSection>;
+const Section: React.FC<SectionProps> = ({ children, height, id }) => {
+    return (
+        <CustomSection id={id} height={height}>
+            {children}
+        </CustomSection>
+    );
 };
 
-const CustomSection = styled.section`
+const CustomSection = styled.section<{ height?: number }>`
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100vh;
+    height: ${({ height }) => (height ? `${height}vh` : '100vh')};
     color: white;
     text-align: center;
 `;
